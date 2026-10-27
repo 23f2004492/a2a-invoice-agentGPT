@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: a2a-invoice-agent
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: BASE_URL
+        sync: false
+      - key: AI_BASE_URL
+        value: https://api.openai.com/v1
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: gpt-4o-mini
+      - key: AI_TIMEOUT_SECONDS
+        value: "34"
+      - key: DATABASE_URL
+        sync: false
